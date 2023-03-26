@@ -1,6 +1,6 @@
 // Zero Knowledge Bitcoin Token (zkBTC) - Staking Contract #1
 //
-// Liquidity Pool 0xBitcoin / zkBitcoin Staking Contract
+// Liquidity Pool zkBitcoin / 0xBitcoin Staking Contract
 // Recieves 21,000,000 zkBTC Tokens from the zkBitcoin Contract over 100+ years.
 // Also recieve 33% of the Ethereum Tokens from the zkBTC Bitcoin Contract over forever.
 //
