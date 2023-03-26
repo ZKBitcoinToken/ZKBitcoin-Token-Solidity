@@ -1,14 +1,14 @@
 
-// Zero Knowledge Bitcoin Token (ZKBTC) - Staking Contract #1
+// Zero Knowledge Bitcoin Token (zkBTC) - Staking Contract #1
 //
-// Liquidity Pool 0xBitcoin / ZK Bitcoin (ZKBTC) Staking Contract
-// Recieves 21,000,000 ZKBTC Tokens from the ZKBTC Contract over 100+ years.
-// Also recieve 33% of the Ethereum Tokens from the ZKBTC Bitcoin Contract over forever.
+// Liquidity Pool 0xBitcoin / ZK Bitcoin (zkBTC) Staking Contract
+// Recieves 21,000,000 zkBTC Tokens from the zkBTC Contract over 100+ years.
+// Also recieve 33% of the Ethereum Tokens from the zkBTC Bitcoin Contract over forever.
 //
 //
-// What we are staking: Liquidity Pool tokens for the pair 0xBTC / ZKBTC
+// What we are staking: Liquidity Pool tokens for the pair 0xBTC / zkBTC
 //
-//Rewards: Zero Knowledge Bitcoin (ZKBTC) Tokens, 0xBitcoin tokens, and Ethereum currently.
+//Rewards: Zero Knowledge Bitcoin (zkBTC) Tokens, 0xBitcoin tokens, and Ethereum currently.
 // Funds gathered will be dispered over 25-100 days.
 //Room to Expand to three other cryptocurrencies(Only admin function in all three contracts is to add up to three more cryptocurrencies!)
 
@@ -154,7 +154,7 @@ contract ZKEVMAuctionsCT{
     uint256 public currentEra;
     }
 
-contract ZKBTCStaking is StakedTokenWrapper, Ownable2 {
+contract zkBTCStaking is StakedTokenWrapper, Ownable2 {
     bool activated6 = false;
     bool activated5 = false;
     bool activated4 = false;
@@ -275,8 +275,8 @@ contract ZKBTCStaking is StakedTokenWrapper, Ownable2 {
     event RewardAdded7(uint256 rewards7);
     event RewardPaidExtraExtra3(address indexed user, uint256 rewardsExtraExtra3);
 
-    constructor(IERC20 _rewardZKBTC, IERC20 _LP, IERC20 _reward0xBTC, ZKEVMAuctionsCT AuctionAddress) {
-        rewardToken = _rewardZKBTC;
+    constructor(IERC20 _rewardzkBTC, IERC20 _LP, IERC20 _reward0xBTC, ZKEVMAuctionsCT AuctionAddress) {
+        rewardToken = _rewardzkBTC;
         stakedToken = _LP;
         rewardToken2 = _reward0xBTC;
 	AuctionCT = AuctionAddress;
@@ -989,7 +989,7 @@ function getRewardBasicBasic(uint choice) public updateReward(msg.sender) {
 * MIT License
 * ===========
 *
-* Copyright (c) 2022 ZK Bitcoin Token (ZKBTC)
+* Copyright (c) 2022 ZK Bitcoin Token (zkBTC)
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
