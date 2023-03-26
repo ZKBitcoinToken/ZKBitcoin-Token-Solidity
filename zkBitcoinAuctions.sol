@@ -171,12 +171,12 @@ contract GasPump {
     }
 }
 
-contract ABASMining{
+contract zkBTCMining{
     function getMiningMinted() public view returns (uint256) {}
     
     }
 
-  contract ArbitrumBitcoinAndStakingAuctions is  GasPump, Ownabled
+  contract zkBitcoinAuctions is  GasPump, Ownabled
 {
 
     using SafeMath for uint;
@@ -214,7 +214,7 @@ contract ABASMining{
     mapping(address=>uint) public ZmapMember_EraClaimedTo;      // Era,Days,Member->Units
     mapping(address=>uint) public ZmapMember_DayClaimedTo; 
     
-    ABASMining public ABASMiningToken;
+    zkBTCMining public zkBTCMiningToken;
     // Events
     event SetExtraGas(uint256 _prev, uint256 _new);
     event NewEra(uint era, uint emission, uint totalBurnt);
@@ -230,7 +230,7 @@ contract ABASMining{
 
     // Constructor
     constructor () {
-        name = "ABAS Auction Contract"; decimals = 18; 
+        name = "zk Bitcoin Auction Contract"; decimals = 18; 
         coin = 10**decimals; emission = 2048*coin;
         currentEra = 1; currentDay = 1; 
         daysPerEra = 150; secondsPerDay = 25 * 60 * 60 * 24; //start out at 25 days avg
@@ -253,13 +253,13 @@ contract ABASMining{
         AddressForgeToken = token;
         owner22 = address(0);
         lastMinted =  0;
-        ABASMiningToken = ABASMining(token);
-        lastMinted = ABASMiningToken.getMiningMinted();
+        zkBTCMiningToken = zkBTCMining(token);
+        lastMinted = zkBTCMiningToken.getMiningMinted();
 
     }
     //Emission * 8 * 4.12 = 66,519 * 150 = 10.2 million ArbiForge
     function changeAuctionAmt() internal {
-        uint tokensMinted = ABASMiningToken.getMiningMinted();
+        uint tokensMinted = zkBTCMiningToken.getMiningMinted();
       
         uint diff = tokensMinted - lastMinted;
         uint expected = emission.mult(8*412).div(100);
@@ -691,7 +691,7 @@ contract ABASMining{
 * MIT License
 * ===========
 *
-* Copyright (c) 2022 Arbitrum Bitcoin and Staking (ABAS)
+* Copyright (c) 2022 Zero Knowledge Bitcoin Token (zkBTC)
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
