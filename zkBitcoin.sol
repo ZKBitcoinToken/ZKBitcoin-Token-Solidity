@@ -5,6 +5,9 @@
     uint public  _MAXIMUM_TARGET = 2**234;
     uint public  _MINIMUM_TARGET = 2**234.div(411); // SHOULD BE Max 3 TH/s of difficulty = 411199054 so 2**234.div(411199054);
 	
+
+    testnet shouldnt go over difficulty 411 after first adjustment (16 blocks in).
+    
 NEED TO CHANGE mintToJustABAS to MintJustzkBTC function name, keeping the same for mining compadibility for now
 
 */
@@ -704,6 +707,11 @@ function zinit(address AuctionAddress2, address LPGuild2, address LPGuild3) publ
 			
 			slowBlocks = slowBlocks.add(1);
 			
+		}else{
+			if(ratio == 0){
+				ratio = 1;
+			}
+			//require(msg.value > 1e14 * ratio / 100, "Must send more ETH in transaction if mining fast");
 		}
 		
 		//best @ 3000 ratio totalOwed / 100000000 = 71.6
