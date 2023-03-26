@@ -1,7 +1,6 @@
-
 // Zero Knowledge Bitcoin Token (zkBTC) - Staking Contract #1
 //
-// Liquidity Pool 0xBitcoin / ZK Bitcoin (zkBTC) Staking Contract
+// Liquidity Pool 0xBitcoin / zkBitcoin Staking Contract
 // Recieves 21,000,000 zkBTC Tokens from the zkBTC Contract over 100+ years.
 // Also recieve 33% of the Ethereum Tokens from the zkBTC Bitcoin Contract over forever.
 //
@@ -989,7 +988,7 @@ function getRewardBasicBasic(uint choice) public updateReward(msg.sender) {
 * MIT License
 * ===========
 *
-* Copyright (c) 2022 ZK Bitcoin Token (zkBTC)
+* Copyright (c) 2022 Zero Knowledge Bitcoin (zkBTC) Token
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
