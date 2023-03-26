@@ -4,6 +4,8 @@
     
     uint public  _MAXIMUM_TARGET = 2**234;
     uint public  _MINIMUM_TARGET = 2**234.div(411); // SHOULD BE Max 3 TH/s of difficulty = 411199054 so 2**234.div(411199054);
+	
+NEED TO CHANGE mintToJustABAS to MintJustzkBTC function name, keeping the same for mining compadibility for now
 
 */
 // Zero Knowledge Bitcoin (zkBTC) Token - Token and Mining Contract
