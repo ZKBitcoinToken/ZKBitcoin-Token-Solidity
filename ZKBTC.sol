@@ -1,7 +1,11 @@
-/**
- *Submitted for verification at Etherscan.io on 2022-12-20
-*/
+/*CHANGE TO SHOULD BE BEFORE LAUNCH
+    uint public _BLOCKS_PER_READJUSTMENT = 16; // should be 1024
+    //a little number
+    
+    uint public  _MAXIMUM_TARGET = 2**234;
+    uint public  _MINIMUM_TARGET = 2**234.div(411); // SHOULD BE Max 3 TH/s of difficulty = 411199054 so 2**234.div(411199054);
 
+*/
 // Zero Knowledge Bitcoin (ZKBTC) Token - Token and Mining Contract
 //
 // Distrubtion of Zero Knowledge Bitcoin (ZKBTC) Token is as follows:
@@ -37,7 +41,7 @@
 //  
 //* 1 token were burned to create the LP pool.
 //
-// Credits: 0xBitcoin, Vether, Synethix
+// Credits: 0xBitcoin, Vether, Synethix, ABAS, ChatGPT
 
 
 pragma solidity ^0.8.11;
@@ -517,11 +521,11 @@ contract ZKBitcoin is Ownable, IERC20 {
     uint public latestDifficultyPeriodStarted2 = block.timestamp; //BlockTime of last readjustment
     uint public epochCount = 0;//number of 'blocks' mined
 	uint public latestreAdjustStarted = block.timestamp; // shorter blocktime of attempted readjustment
-    uint public _BLOCKS_PER_READJUSTMENT = 1024; // should be 1024
+    uint public _BLOCKS_PER_READJUSTMENT = 16; // should be 1024
     //a little number
-    uint public  _MINIMUM_TARGET = 2**16;
     
     uint public  _MAXIMUM_TARGET = 2**234;
+    uint public  _MINIMUM_TARGET = (_MAXIMUM_TARGET).div(411); // Max 3 TH/s of difficulty = 411199054
     uint public miningTarget = _MAXIMUM_TARGET.div(200000000000*25);  //1000 million difficulty to start until i enable mining
     
     bytes32 public challengeNumber = blockhash(block.number - 1); //generate a new one when a new reward is minted
@@ -739,7 +743,7 @@ function zinit(address AuctionAddress2, address LPGuild2, address LPGuild3) publ
 
 
 
-	function mintToJustZKBTC(uint256 nonce, bytes32 challenge_digest) public returns (uint256 totalOwed) {
+	function mintToJustABAS(uint256 nonce, bytes32 challenge_digest) public returns (uint256 totalOwed) {
 
 		bytes32 digest =  keccak256(abi.encodePacked(challengeNumber, msg.sender, nonce));
 
@@ -979,6 +983,8 @@ function zinit(address AuctionAddress2, address LPGuild2, address LPGuild3) publ
 			if(rewardEra < 8){
 				targetTime = ((12 * 60) * 2**rewardEra);
 				if(rewardEra < 6){
+                    _MINIMUM_TARGET = _MINIMUM_TARGET / 2;
+
 					if(_BLOCKS_PER_READJUSTMENT <= 16){
 						_BLOCKS_PER_READJUSTMENT = 8;
 					}else{
