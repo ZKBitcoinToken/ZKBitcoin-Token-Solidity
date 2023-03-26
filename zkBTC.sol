@@ -18,7 +18,7 @@
 // = 100% Of the Token is distributed to the users! No dev fee or premine!
 //
 	
-// Symbol: ZKBTC
+// Symbol: zkBTC
 // Decimals: 18 
 //
 // Total supply: 73,500,001.000000000000000000
@@ -480,7 +480,7 @@ interface IERC1155Receiver is IERC165 {
     ) external returns (bytes4);
 }
 
-contract ZKBTCAuctionsCT{
+contract zkBTCAuctionsCT{
     uint256 public totalAuctioned;
     }
     
@@ -503,7 +503,7 @@ contract ZKBitcoin is Ownable, IERC20 {
     uint public multipler = 0;
 // SUPPORTING CONTRACTS
     address public AddressAuction;
-    ZKBTCAuctionsCT public AuctionsCT;
+    zkBTCAuctionsCT public AuctionsCT;
     address public AddressLPReward;
     address public AddressLPReward2;
 //Events
@@ -546,7 +546,7 @@ contract ZKBitcoin is Ownable, IERC20 {
     uint public give = 1;
     // metadata
     string public name = "ZK Bitcoin Token";
-    string public constant symbol = "ZKBTC";
+    string public constant symbol = "zkBTC";
     uint8 public constant decimals = 18;
 	
     uint256 lastrun = block.timestamp;
@@ -582,7 +582,7 @@ function zinit(address AuctionAddress2, address LPGuild2, address LPGuild3) publ
         emit Transfer(address(0), AuctionAddress2, x/2);
 	
     	AddressAuction = AuctionAddress2;
-        AuctionsCT = ZKBTCAuctionsCT(AddressAuction);
+        AuctionsCT = zkBTCAuctionsCT(AddressAuction);
         AddressLPReward = payable(LPGuild2);
         AddressLPReward2 = payable(LPGuild3);
 		slowBlocks = 1;
@@ -1335,7 +1335,7 @@ function zinit(address AuctionAddress2, address LPGuild2, address LPGuild3) publ
 * MIT License
 * ===========
 *
-* Copyright (c) 2023 Zero Knowledge Bitcoin (ZKBTC)
+* Copyright (c) 2023 Zero Knowledge Bitcoin (zkBTC)
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
