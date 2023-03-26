@@ -539,7 +539,7 @@ pragma solidity ^0.8;
 pragma solidity ^0.8.7;
 
 
-contract a0xbtcMock is ERC20 {
+contract aLPMock is ERC20 {
 	constructor() public ERC20("Test LP zkBTC/0xBTC", "mLP") {
         
     }
