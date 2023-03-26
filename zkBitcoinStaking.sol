@@ -1,15 +1,15 @@
 // Zero Knowledge Bitcoin Token (zkBTC) - Staking Contract #1
 //
 // Liquidity Pool 0xBitcoin / zkBitcoin Staking Contract
-// Recieves 21,000,000 zkBTC Tokens from the zkBTC Contract over 100+ years.
+// Recieves 21,000,000 zkBTC Tokens from the zkBitcoin Contract over 100+ years.
 // Also recieve 33% of the Ethereum Tokens from the zkBTC Bitcoin Contract over forever.
 //
 //
 // What we are staking: Liquidity Pool tokens for the pair 0xBTC / zkBTC
 //
-//Rewards: Zero Knowledge Bitcoin (zkBTC) Tokens, 0xBitcoin tokens, and Ethereum currently.
-// Funds gathered will be dispered over 25-100 days.
-//Room to Expand to three other cryptocurrencies(Only admin function in all three contracts is to add up to three more cryptocurrencies!)
+// Rewards: Zero Knowledge Bitcoin (zkBTC) Tokens, 0xBitcoin tokens, and Ethereum currently.
+// Funds gathered will be dispered over the next 25-100 days, repeatidly forever!
+// Room to Expand to three other cryptocurrencies(Only admin function in all three contracts is to add up to three more cryptocurrencies!)
 
 pragma solidity ^0.8.11;
 
@@ -148,12 +148,12 @@ contract StakedTokenWrapper {
     }
 }
 
-contract ZKEVMAuctionsCT{
+contract zkBitcoinAuctionsCT{
     uint256 public secondsPerDay;
     uint256 public currentEra;
     }
 
-contract zkBTCStaking is StakedTokenWrapper, Ownable2 {
+contract zkBitcoinStaking is StakedTokenWrapper, Ownable2 {
     bool activated6 = false;
     bool activated5 = false;
     bool activated4 = false;
@@ -208,7 +208,7 @@ contract zkBTCStaking is StakedTokenWrapper, Ownable2 {
     uint256 public rewardPerTokenStoredExtraExtra2;
     uint256 public rewardPerTokenStoredExtraExtra3;
 	
-	ZKEVMAuctionsCT public AuctionCT;
+	zkBitcoinAuctionsCT public AuctionCT;
     struct UserRewards {
         uint256 userRewardPerTokenPaid;
         uint256 rewards;
@@ -274,7 +274,7 @@ contract zkBTCStaking is StakedTokenWrapper, Ownable2 {
     event RewardAdded7(uint256 rewards7);
     event RewardPaidExtraExtra3(address indexed user, uint256 rewardsExtraExtra3);
 
-    constructor(IERC20 _rewardzkBTC, IERC20 _LP, IERC20 _reward0xBTC, ZKEVMAuctionsCT AuctionAddress) {
+    constructor(IERC20 _rewardzkBTC, IERC20 _LP, IERC20 _reward0xBTC, zkBitcoinAuctionsCT AuctionAddress) {
         rewardToken = _rewardzkBTC;
         stakedToken = _LP;
         rewardToken2 = _reward0xBTC;
@@ -884,14 +884,14 @@ function getRewardBasicBasic(uint choice) public updateReward(msg.sender) {
             this.Z_setRewardParamsExtraExtra(3, 33);
             this.Z_setRewardParamsExtra(3, 33);
         }else{
-            this.Z_setRewardParamsZKEVM(2, 22);
+            this.Z_setRewardParamsZKBTC(2, 22);
             this.Z_setRewardParams0xBTC(2, 22);
             this.Z_setRewardParamsETH(2, 22);
         }
     }
 
 
-    function Z_setRewardParamsZKEVM(uint256 reward, uint64 duration) external {
+    function Z_setRewardParamsZKBTC(uint256 reward, uint64 duration) external {
         unchecked {
             require(reward > 0);
             duration = poolLength; 
