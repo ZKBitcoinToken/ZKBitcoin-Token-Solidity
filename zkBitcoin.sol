@@ -6,33 +6,33 @@
     uint public  _MINIMUM_TARGET = 2**234.div(411); // SHOULD BE Max 3 TH/s of difficulty = 411199054 so 2**234.div(411199054);
 
 */
-// Zero Knowledge Bitcoin (ZKBTC) Token - Token and Mining Contract
+// Zero Knowledge Bitcoin (zkBTC) Token - Token and Mining Contract
 //
-// Distrubtion of Zero Knowledge Bitcoin (ZKBTC) Token is as follows:
-// 57% of ZKBTC Token is distributed as Liquidiy Pools as rewards in the ZKBTCRewards Contract which distributes tokens to users who deposit the Liquidity Pool tokens into the LPRewards contracts.
+// Distrubtion of Zero Knowledge Bitcoin (zkBTC) Token is as follows:
+// 57% of zkBTC Token is distributed as Liquidiy Pools as rewards in the zkBTCRewards Contract which distributes tokens to users who deposit the Liquidity Pool tokens into the LPRewards contracts.
 // +
-// 29% of ZKBTC Token is distributed using ZKBTC Mining Contract(this Contract) which distributes tokens to users by using Proof of work. Computers solve a complicated problem to gain tokens!
+// 29% of zkBTC Token is distributed using zkBTC Mining Contract(this Contract) which distributes tokens to users by using Proof of work. Computers solve a complicated problem to gain tokens!
 // +
-// 15% of ZKBTC Token is Auctioned in the ZKBTC Auctions Contract which distributes tokens to users who use Ethereum to buy tokens in fair price. Each auction lasts ~12 days. Using the Auctions contract.
+// 15% of zkBTC Token is Auctioned in the zkBTC Auctions Contract which distributes tokens to users who use Ethereum to buy tokens in fair price. Each auction lasts ~12 days. Using the Auctions contract.
 // +
 // = 100% Of the Token is distributed to the users! No dev fee or premine!
 //
 	
 // Symbol: zkBTC
-// Decimals: 18 
+// Decimals: 18
 //
 // Total supply: 73,500,001.000000000000000000
 //   =
-// 42,000,000 tokens goes to Liquidity Providers of the token over 100+ year using Bitcoin distribution!  Helps prevent LP losses!  Uses the ZKBTCRewards1 & ZKBTCRewards2 Contract!
+// 42,000,000 tokens goes to Liquidity Providers of the token over 100+ year using Bitcoin distribution!  Helps prevent LP losses!  Uses the zkBTCRewards1 & zkBTCRewards2 Contract!
 //   +
 // 21,000,000 Mined over 100+ years using Bitcoins Distrubtion halvings every 4 years @ 360 min solves. Uses Proof-oF-Work to distribute the tokens. Public Miner is available.  Uses this contract.
 //   +
-// 10,500,000 Auctioned over 100+ years into 4 day auctions split fairly among all buyers. ALL Ethereum proceeds go into THIS contract which it fairly distributes to miners and stakers.  Uses the ZKBTCAuctions contract
+// 10,500,000 Auctioned over 100+ years into 4 day auctions split fairly among all buyers. ALL Ethereum proceeds go into THIS contract which it fairly distributes to miners and stakers.  Uses the zkBTCAuctions contract
 //  
 //
 //      
 // 33% of the Ethereum from this contract goes to the Miner to pay for the transaction cost and if the token grows enough earn Ethereum per mint!
-// 66% of the Ethereum from this contract goes to the Liquidity Providers via ZKBTCRewards Contract.  Helps prevent Impermant Loss! Larger Liquidity!
+// 66% of the Ethereum from this contract goes to the Liquidity Providers via zkBTCRewards Contract.  Helps prevent Impermant Loss! Larger Liquidity!
 //
 // No premine, dev cut, or advantage taken at launch. Public miner available at launch.  100% of the token is given away fairly over 100+ years using Bitcoins model!
 //
@@ -485,7 +485,7 @@ contract zkBTCAuctionsCT{
     }
     
 
-contract ZKBitcoin is Ownable, IERC20 {
+contract zkBitcoin is Ownable, IERC20 {
 
     function onERC721Received(address, address, uint256, bytes calldata) external pure returns (bytes4) {
         return IERC721Receiver.onERC721Received.selector;
