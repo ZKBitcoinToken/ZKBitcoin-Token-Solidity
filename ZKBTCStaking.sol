@@ -154,7 +154,7 @@ contract ZKEVMAuctionsCT{
     uint256 public currentEra;
     }
 
-contract ZKBTCStakingRewards is StakedTokenWrapper, Ownable2 {
+contract ZKBTCStaking is StakedTokenWrapper, Ownable2 {
     bool activated6 = false;
     bool activated5 = false;
     bool activated4 = false;
