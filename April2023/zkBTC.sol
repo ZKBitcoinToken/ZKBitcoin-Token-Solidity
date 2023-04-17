@@ -1,15 +1,16 @@
 // zkBitcoin Token (zkBTC) - Token and Mining Contract
 //
-// Distrubtion of zkBitcoin Token (zkBTC) is distributed using this Contract which distributes tokens to users by using Proof of work. Computers solve a complicated problem to gain tokens!
-
-	
+// Distrubtion of zkBitcoin Token (zkBTC) is distributed to users by using Proof of work. Miners solve a complicated problem to gain tokens!  
+// Proof of work uses Bitcoins philopshiphy of difficulty adjustments and reward halfings.
+//
+//	
 // Symbol: zkBTC
 // Decimals: 18
 //
 // Total supply: 21,000,000.000000000000000000
 //
 //   
-// No premine, dev cut, or advantage taken at launch. Public miner available at launch.  100% of the token is given away fairly over 100+ years using Bitcoins model!
+// No premine, dev cut, or advantage taken at launch. Public miner available at launch.  100% of the token is given away fairly using Bitcoins model!
 //
 // Credits: 0xBitcoin
 
