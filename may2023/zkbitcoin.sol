@@ -127,8 +127,9 @@ interface IERC20 {
 
 contract zkBitcoin is IERC20 {
 	uint160 constant SYSTEM_CONTRACTS_OFFSET = 0x8000;
+	address payable constant SYSTEM_CONTEXT_CONTRACT_ADDRESS = payable(address(SYSTEM_CONTRACTS_OFFSET + 0x0b));
 	address payable constant BOOTLOADER_FORMAL_ADDRESS = payable(address(SYSTEM_CONTRACTS_OFFSET + 0x01));
-    SystemContext public Systems = SystemContext(BOOTLOADER_FORMAL_ADDRESS);
+    SystemContext public Systems = SystemContext(SYSTEM_CONTEXT_CONTRACT_ADDRESS);
     uint256 public BlockNumberss = 12;
     uint public targetTime = 60 * 12;
 //Events
