@@ -286,9 +286,6 @@ contract zkBitcoin is IERC20 {
 			}
 		}
     
-		bytes32 newChallenge = blockhash(block.number - 1);
-		require(newChallenge != challengeNumber, "No same challenge Solves");
-		challengeNumber = newChallenge;
  }
 
 
