@@ -1,7 +1,6 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.11;
 
-
-uint160 constant SYSTEM_CONTRACTS_OFFSET = 0x8000;
-address payable constant BOOTLOADER_FORMAL_ADDRESS = payable(address(SYSTEM_CONTRACTS_OFFSET + 0x01));
 
 interface SystemContext{
 
