@@ -174,7 +174,7 @@ contract zkBitcoin is IERC20 {
         assert(!initeds);
         initeds = true;
 		reward_amount = 50 * 10**uint(decimals);
-    	rewardEra = 0;
+    		rewardEra = 0;
 		tokensMinted = 0;
 		epochCount = 0;
 		epochOld = 0;
@@ -188,15 +188,22 @@ contract zkBitcoin is IERC20 {
 	///
 	
 	//comability function
-	function mint(uint256 nonce, bytes32 challenge_digest) public payable returns (bool success) {
+	function mint(uint256 nonce, bytes32 challenge_digest) public returns (bool success) {
 		mintTo(nonce, challenge_digest, msg.sender);
 		return true;
 	}
 	
 	
-	function mintTo(uint256 nonce, bytes32 challenge_digest, address mintToAddress) public payable returns (bool success) {
+	function mintTo(uint256 nonce, bytes32 challenge_digest, address mintToAddress) public returns (bool success) {
         BlockNumberss = Systems.getBlockNumber();
+	
+		bytes32 digest =  keccak256(abi.encodePacked(challengeNumber, msg.sender, nonce));
 
+		//the challenge digest must match the expected
+		require(digest == challenge_digest, "Old challenge_digest or wrong challenge_digest");
+
+		//the digest must be smaller than the target
+		require(uint256(digest) < miningTarget, "Digest must be smaller than miningTarget");
 		//the challenge digest must match the expected
 
 		//the digest must be smaller than the target
@@ -208,13 +215,20 @@ contract zkBitcoin is IERC20 {
 		
 		_totalSupply = _totalSupply.add(reward_amount);
 
-		emit Mint(mintToAddress, reward_amount, epochCount, challengeNumber );
+		bytes32 challengeNumber2 = Systems.getBlockHashEVM(BlockNumberss - 1);
+		require(challengeNumber2 != challengeNumber, "Cant equal current Challenge");
+		challengeNumber = challengeNumber2;
 
+		emit Mint(mintToAddress, reward_amount, epochCount, challengeNumber );
 		return true;
 
 	}
 	
-	
+	function NextChallengeIs()public view returns (bytes32 NewChallenge){
+		uint 256 BlockNumbera = Systems.getBlockNumber();
+		return Systems.getBlockHashEVM(BlockNumbera - 1);
+	}
+
 	function blocksFromReadjust() public view returns (uint256 blocks){
 		blocks = (epochCount - epochOld);
 		return blocks;
@@ -267,7 +281,7 @@ contract zkBitcoin is IERC20 {
 
 		//set the next minted supply at which the era will change
 		// total supply of MINED tokens is 21000000000000000000000000  because of 18 decimal places
-
+		
 		epochCount = epochCount.add(1);
 
 		//every so often, readjust difficulty. Dont readjust when deploying
